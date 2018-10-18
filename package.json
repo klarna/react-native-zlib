@@ -7,7 +7,7 @@
   "types": "js/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "cd example && yarn install --force && cd android && ./gradlew assembleDebug",
+    "example": "cd example && yarn install --force && cd node_modules/@klarna/react-native-zlib/ && rm -rf example .git && cd ../../.. && cd android && ./gradlew installDebug",
     "diff": "kdiff3 example/node_modules/@klarna/react-native-zlib/android/src ./android/src",
     "cleanup": "find . -type f -name \"*.orig\" -delete"
   },
