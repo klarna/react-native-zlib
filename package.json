@@ -2,17 +2,45 @@
 {
   "name": "@klarna/react-native-zlib",
   "version": "1.0.0",
-  "description": "",
+  "description": "Allow to use native implementation of compression algorithms. Inflate/Deflate/Gzip.",
   "main": "index.js",
+  "types": "js/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "example": "cd example && yarn install --force && cd android && ./gradlew assembleDebug",
+    "diff": "kdiff3 example/node_modules/@klarna/react-native-zlib/android/src ./android/src",
+    "cleanup": "find . -type f -name \"*.orig\" -delete"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "inflate",
+    "deflate",
+    "gzip",
+    "zlib",
+    "compression",
+    "android"
   ],
-  "author": "",
-  "license": "",
+  "author": "Oleksandr Kucherenko",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klarna/react-native-zlib.git"
+  },
+  "homepage": "https://github.com/klarna/react-native-zlib",
+  "bugs": {
+    "url": "https://github.com/klarna/react-native-zlib/issues"
+  },
+  "rnpm": {
+    "ios": {
+      "sharedLibraries": [
+        "libz"
+      ]
+    }
+  },
+  "devDependencies": {
+    
+  },
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": "*"
   }
 }

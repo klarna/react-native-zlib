@@ -6,7 +6,7 @@
 # node.js
 #
 node_modules/
-  
+
 
 # Xcode
 #
@@ -27,22 +27,33 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-      
+
 
 # Android/IntelliJ
 #
 build/
-.idea
-.gradle
+.idea/
+.gradle/
 local.properties
 *.iml
+
+# Eclipse Files
+#
+.project
+.classpath
+.settings/
 
 # BUCK
 buck-out/
 \.buckd/
 *.keystore
-      
+
 # Diff / Merge / Logs
 *.orig
 *.log
 *.bak
+
+
+# Yarn
+#
+yarn.lock

@@ -1,0 +1,22 @@
+rootProject.name = 'example'
+
+include ':app'
+
+def configureRNModule(prj) {
+     def dir = new File(rootProject.projectDir, "../node_modules/${prj.name}/android")
+     def dirSrc = new File(rootProject.projectDir, "../node_modules/${prj.name}/src/android")
+     def dirKlarna = new File(rootProject.projectDir, "../node_modules/@klarna/${prj.name}/android")
+
+     if (dirKlarna.exists()) {
+         prj.projectDir = dirKlarna
+     } else if (dirSrc.exists()) {
+         prj.projectDir = dirSrc
+     } else if (dir.exists()) {
+         prj.projectDir = dir
+     } else {
+         throw new Exception("project directory not found! project: ${prj.name}")
+     }
+}
+
+include ':react-native-zlib'
+configureRNModule(project(':react-native-zlib'))
