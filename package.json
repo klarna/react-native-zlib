@@ -3,13 +3,24 @@
   "name": "@klarna/react-native-zlib",
   "version": "1.0.0",
   "description": "Allow to use native implementation of compression algorithms. Inflate/Deflate/Gzip.",
-  "main": "index.js",
+  "main": "js/index.js",
   "types": "js/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "cd example && yarn install --force && cd node_modules/@klarna/react-native-zlib/ && rm -rf example .git && cd ../../.. && cd android && ./gradlew installDebug",
     "diff": "kdiff3 example/node_modules/@klarna/react-native-zlib/android/src ./android/src",
-    "cleanup": "find . -type f -name \"*.orig\" -delete"
+    "cleanup": "find . -type f -name \"*.orig\" -delete && rm -rf example/node_modules/@klarna/react-native-zlib/",
+    "example": "yarn example:install && yarn example:cleanup && cd example/android && ./gradlew installDebug",
+    "example:install": "cd example && yarn install --force && cd ..",
+    "example:cleanup": "cd example/node_modules/@klarna/react-native-zlib/ && rm -rf example .git && cd ../../../..",
+    "link:del": "cd example/node_modules/@klarna/react-native-zlib/ && rm -rf android ios js && cd ../../../..",
+    "link:all": "yarn link:del && yarn link:android && yarn link:js && yarn link:ios",
+    "link:android": "ln -s $(pwd)/android example/node_modules/@klarna/react-native-zlib/",
+    "link:ios": "ln -s $(pwd)/ios example/node_modules/@klarna/react-native-zlib/",
+    "link:js": "ln -s $(pwd)/js example/node_modules/@klarna/react-native-zlib/",
+    "update:all": "yarn update:android && yarn update:ios && yarn update:js",
+    "update:android": "rsync -ar --exclude .idea --exclude .gradle --exclude build android example/node_modules/@klarna/react-native-zlib/",
+    "update:ios": "rsync -a ios example/node_modules/@klarna/react-native-zlib/",
+    "update:js": "rsync -a js example/node_modules/@klarna/react-native-zlib/"
   },
   "keywords": [
     "react-native",
