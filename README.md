@@ -73,9 +73,33 @@ configureRNModule(project(':react-native-zlib'))
 
 ```javascript
 import RNReactNativeZlib from '@klarna/react-native-zlib';
+import base64 from "react-native-base64";
+import { Buffer } from "buffer";
 
-// TODO: What to do with the module?
-RNReactNativeZlib;
+/* Working with byte arrays */
+const testArray = [0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6];
+RNReactNativeZlib.deflate(testArray).then(compressed => {
+  RNReactNativeZlib.inflate(compressed).then(decompressed => {
+    // decompressed
+  })
+});
+
+/* Working with base64 strings */
+const testString = `{ experiment: 'something inside'}`;
+const encoded1 = base64.encode(testString);
+const encoded2 = Buffer.from(testString).toString("base64");
+
+RNReactNativeZlib.deflateBase64(encoded1).then(compressed => {
+  // base64 --> byte[] --> compressed byte[] --> base64
+  
+  RNReactNativeZlib.inflateBase64(compressed).then(decompressed => {
+    const result1 = base64.decode(buffer);
+    const result2 = Buffer.from(buffer, 'base64').toString('utf8')
+
+    // decompressed
+  })
+});
+
 ```
 
 ## Supported API
