@@ -18,6 +18,33 @@ android {
     versionCode 1
     versionName "1.0"
   }
+
+  sourceSets {
+    main {
+      /**
+        Hack:
+        - rebind android sourceSets to root project files instead of using node_modules copy
+        - gradle file is still used from `example/node_modules/@klarna/react-native-zlib/` copy
+
+        P.S. we search for parent folder of the project, if 'app' inside 'react-native-zlib' folder
+        than we are safe to apply override logic
+      */
+      if(project.file('../../../../../../react-native-zlib').exists()) {
+        setRoot '../../../../../android/src/main'
+
+        println 'WARNING: '
+        println 'WARNING: Hack applied!'
+        println 'WARNING: rebinding module sourceSets to root project files instead of using node_modules copy'
+        println 'WARNING: build.gradle file is still used from `example/node_modules/@klarna/react-native-zlib/`'
+        println 'WARNING: modify `android/build.gradle` file and after that execute `yarn update:all`'
+        println 'WARNING: '
+        println "sources bind to: ${java.srcDirs}"
+      } else {
+        println "INFO: used default source dirs: ${java.srcDirs}"
+      }
+    }
+  }
+
   lintOptions {
     abortOnError false
   }
@@ -28,5 +55,5 @@ repositories {
 }
 
 dependencies {
-  compile 'com.facebook.react:react-native:+'
+  api 'com.facebook.react:react-native:+'
 }
