@@ -7,7 +7,6 @@
 #
 node_modules/
 
-
 # Xcode
 #
 build/
@@ -27,7 +26,6 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-
 
 # Android/IntelliJ
 #
@@ -53,8 +51,13 @@ buck-out/
 *.log
 *.bak
 
-
 # Yarn
 #
 yarn.lock
 package/
+gen/
+*.tgz
+
+# NPM config
+#
+.npmrc

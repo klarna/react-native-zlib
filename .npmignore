@@ -1,10 +1,7 @@
-node_modules
+node_modules/
+
 coverage.android.json
 coverage.ios.json
-coverage
-npm-debug.log
-*.DS_Store
-.github
 
 # Xcode
 *.pbxuser
@@ -26,9 +23,10 @@ jsconfig.json
 
 # Example
 example/
+examples/
 
 # Built application files
-android/*/build/
+android/build/
 
 # Crashlytics configuations
 android/com_crashlytics_export_strings.xml
@@ -48,6 +46,7 @@ android/*.iml
 ios/RNReactNativeZlib.xcodeproj/xcuserdata
 
 # OS-specific files
+*.DS_Store
 .DS_Store
 .DS_Store?
 ._*
@@ -55,24 +54,38 @@ ios/RNReactNativeZlib.xcodeproj/xcuserdata
 ehthumbs.db
 Thumbs.db
 
+# asset directories
+docs/
+doc/
+website/
+images/
+assets/
+
 # Extra files
-docs
-.idea
-coverage
-yarn.lock
-tests
+.idea/
+coverage/
+tests/
 bridge/
 buddybuild_postclone.sh
 bin/test.js
-.github
-example
-codorials
-.vscode
-.nyc_output
+.github/
+.vscode/
+.settings/
 CONTRIBUTING.md
 CODE_OF_CONDUCT.md
 android/.settings
-README.md
 android/gradle
 android/gradlew
 android/gradlew.bat
+yarn.lock
+*.yml
+
+# Diff / Merge / Logs
+*.orig
+*.log
+*.bak
+
+# Yarn Pack / NPM pack
+*.tgz
+package/
+gen/

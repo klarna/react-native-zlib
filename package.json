@@ -1,7 +1,7 @@
 
 {
   "name": "@klarna/react-native-zlib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allow to use native implementation of compression algorithms. Inflate/Deflate/Gzip.",
   "main": "js/index.js",
   "types": "js/index.d.ts",
@@ -49,7 +49,7 @@
     }
   },
   "devDependencies": {
-    
+
   },
   "peerDependencies": {
     "react-native": "*"
