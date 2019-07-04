@@ -4,16 +4,19 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "@klarna/react-native-zlib": "file:..",
     "buffer": "^5.2.1",
     "react": "16.6.0-alpha.8af6728",
-    "react-native": "0.57.1",
+    "react-native": "0.60.0",
     "react-native-base64": "^0.0.2",
-    "schedule": "0.4.0"
+    "schedule": "0.4.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
@@ -23,5 +26,6 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "snyk": true
 }
