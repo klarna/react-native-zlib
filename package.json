@@ -41,15 +41,8 @@
   "bugs": {
     "url": "https://github.com/klarna/react-native-zlib/issues"
   },
-  "rnpm": {
-    "ios": {
-      "sharedLibraries": [
-        "libz"
-      ]
-    }
-  },
   "devDependencies": {
-    
+
   },
   "peerDependencies": {
     "react-native": "*"
